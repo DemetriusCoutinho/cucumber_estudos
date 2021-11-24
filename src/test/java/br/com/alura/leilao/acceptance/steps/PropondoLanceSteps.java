@@ -3,6 +3,7 @@ package br.com.alura.leilao.acceptance.steps;
 import br.com.alura.leilao.model.Lance;
 import br.com.alura.leilao.model.Leilao;
 import br.com.alura.leilao.model.Usuario;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -17,6 +18,8 @@ import org.junit.Assert;
 import javax.validation.constraints.AssertTrue;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class PropondoLanceSteps {
 
@@ -82,6 +85,26 @@ public class PropondoLanceSteps {
     public void o_lance_nao_e_aceito() {
         Assert.assertEquals(0, leilao.getLances().size());
     }
+
+    @Dado("dois lances")
+    public void dois_lances(DataTable dataTable) {
+        List<Map<String, String>> strings = dataTable.asMaps();
+        strings.forEach(map -> {
+            BigDecimal valor = new BigDecimal(map.get("valor"));
+            String nome = map.get("nomeUsuario");
+
+            Lance lance = new Lance(new Usuario(nome), valor);
+            lista.add(lance);
+        });
+    }
+
+    @Entao("o segundo lance nap eh aceito")
+    public void o_segundo_lance_nap_eh_aceito() {
+        Assert.assertEquals(1, leilao.getLances().size());
+        Assert.assertEquals(lista.get(0).getValor(), leilao.getLances().get(0).getValor());
+
+    }
+
 
 }
 

@@ -24,3 +24,13 @@ Funcionalidade: : Propondo Lances ao Leilao
       | valor | nomeUsuario |
       | 0     | beltrano    |
       | -1    | cigano      |
+
+  Cenario: Propondo uma sequencia de lances
+    Dado dois lances
+      | valor | nomeUsuario |
+      | 10.0  | fulano      |
+      | 15.0  | fulano      |
+    Quando propoe varios lances ao leilao
+    Entao o segundo lance nap eh aceito
+
+
