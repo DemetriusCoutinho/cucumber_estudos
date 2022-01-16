@@ -98,7 +98,7 @@ public class PropondoLanceSteps {
         });
     }
 
-    @Entao("o segundo lance nap eh aceito")
+    @Entao("o segundo lance nao eh aceito")
     public void o_segundo_lance_nap_eh_aceito() {
         Assert.assertEquals(1, leilao.getLances().size());
         Assert.assertEquals(lista.get(0).getValor(), leilao.getLances().get(0).getValor());

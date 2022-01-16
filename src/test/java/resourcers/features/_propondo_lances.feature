@@ -31,6 +31,6 @@ Funcionalidade: : Propondo Lances ao Leilao
       | 10.0  | fulano      |
       | 15.0  | fulano      |
     Quando propoe varios lances ao leilao
-    Entao o segundo lance nap eh aceito
+    Entao o segundo lance nao eh aceito
 
 
