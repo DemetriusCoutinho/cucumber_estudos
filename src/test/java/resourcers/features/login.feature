@@ -8,5 +8,5 @@ Funcionalidade: Apenas usuarios cadastrados podem se logar
 
   Cenario: Um usuario invalida nao consegue logar
     Dado o usuario invalido
-    Quando tenta de logar
+    Quando tenta se logar
     Entao continua na pagina de login
